@@ -1,7 +1,9 @@
 {
   "name": "wetranslateitFront",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "satellizer": "^0.15.5"
+  },
   "scripts": {
     "test": "gulp test"
   },
