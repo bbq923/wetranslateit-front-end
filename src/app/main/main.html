@@ -4,19 +4,36 @@
     <div class="panel-heading">번역하고 싶은 페이지를 검색해보세요!</div>
     <div class="panel-body">
       <div class="input-group">
-        <textarea class="form-control custom-control" rows=3 style="resize:none" ng-model="main.message"></textarea>
+        <textarea class="form-control custom-control" rows=1 style="resize:none" ng-model="main.page"></textarea>
         <span class="input-group-addon btn btn-primary" ng-click="main.searchByURL()">Search</span>
       </div>
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading">번역 중인 페이지</div>
+    <div class="panel-heading">번역 중인 페이지 여부 확인</div>
     <div class="panel-body">
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="message in main.messages">
-          {{message.msg}} {{message.user.email}}
+        <li class="list-group-item"> 
+          {{main.message}}
         </li>
       </ul>
     </div>
   </div>
+   <div class="panel panel-default">
+    <span class="input-group-addon btn btn-primary" ng-click="main.saveByURL()">URL로 번역할 페이지 저장하기</span>
+  </div>
+  <div class="panel panel-default">
+    <span class="input-group-addon btn btn-primary" ng-click="main.show()">번역할 페이지 가져오기</span>
+  </div>
+  <div id="fixed-input" class="paenl panel-default" style="margin: auto; width: 1140px; position: fixed; bottom: 0px; display: block;">
+    <div class="panel-heading" style="background-color: deepskyblue; color: white; border: 1px dimgray solid;"> {{ main.highlighted }} </div>
+    <div class="panel-body">
+      <div class="input-group">
+        <textarea class="form-control custom-control" rows=2 style="resize:none" placeholder="여기에 번역해 주세요!" ng-model="main.trans"></textarea>
+        <span class="input-group-addon btn btn-primary" style="background-color: deepskyblue; color: white" ng-click="main.translate()">번역시작</span>
+        <span class="input-group-addon btn btn-primary" style="background-color: lightskyblue; color: white" ng-click="main.change()">번역완료</span>
+      </div>
+    </div>
+  </div>
+  <div style="height: 300px;" ng-bind-html="main.trustHtml(main.html)"></div>
 </div>
